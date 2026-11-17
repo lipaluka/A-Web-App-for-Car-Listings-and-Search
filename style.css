@@ -5,4 +5,39 @@ h1{
     text-align: center;
 }
 
+.izbornik {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border-top: 3.5px solid gray;
+    border-bottom: 3.5px solid gray;
+}
+
+.izbornik li {
+    flex: 1;
+}
+
+.izbornik li a {
+    display: block;
+    text-align: center;
+    color: darkgray;
+    border: 1px solid gray;
+    padding: 15px 0;
+    text-decoration: none;
+    font-size: 22px;
+}
+
+.izbornik li a:hover {
+    background-color: darkblue;
+    color: white;
+    transform: scale(1.175);
+}
+
+.kontakt_info{
+    margin-top: 25px;
+    padding: 10px;
+    text-align: left;
+    border-top: 3.5px solid gray;
+}
 
