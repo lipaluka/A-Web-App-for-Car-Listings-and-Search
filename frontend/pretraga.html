@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,6 +16,58 @@
             <li><a href="">Spremljeni oglasi</a></li>
         </ul>
     </nav>
-    
+
+    <main class="pretraga">
+        <aside class="filteri">
+            <h2>Filteri</h2>
+            <form id="forma-filteri">
+                <label for="marka">Marka</label>
+                <input type="text" id="marka" name="marka">
+
+                <label for="model">Model</label>
+                <input type="text" id="model" name="model">
+
+                <label for="cijena_do">Cijena do (€)</label>
+                <input type="number" id="cijena_do" name="cijena_do">
+
+                <fieldset class="godiste">
+                    <legend>Godište</legend>
+
+                    <label class="radio"><input type="radio" name="godiste_tip" value="tocno" checked> Točno</label>
+                    <label class="radio"><input type="radio" name="godiste_tip" value="raspon"> Od – do</label>
+
+                    <div id="godiste-tocno">
+                        <input type="number" id="godina" name="godina" placeholder="npr. 2018" min="1950" max="2100">
+                    </div>
+
+                    <div id="godiste-raspon" hidden>
+                        <input type="number" id="godina_od" name="godina_od" placeholder="Od" min="1950" max="2100" disabled>
+                        <input type="number" id="godina_do" name="godina_do" placeholder="Do" min="1950" max="2100" disabled>
+                    </div>
+                </fieldset>
+
+                <label for="gorivo">Gorivo</label>
+                <select id="gorivo" name="gorivo">
+                    <option value="">Sva</option>
+                    <option value="Benzin">Benzin</option>
+                    <option value="Dizel">Dizel</option>
+                    <option value="Hibrid">Hibrid</option>
+                    <option value="Električni">Električni</option>
+                </select>
+
+                <button type="submit">Traži</button>
+            </form>
+        </aside>
+
+        <section class="rezultati" id="rezultati"></section>
+    </main>
+
+    <footer class="kontakt_info">
+        <p>&copy; 2026 Web App for Car Listings. All rights reserved.</p>
+        <p>Kontakt: luka.lipovac.sb@gmail.com</p>
+        <p>Tel: 099/765/7544</p>
+    </footer>
+
+    <script src="js/pretraga.js"></script>
 </body>
 </html>

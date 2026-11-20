@@ -9,7 +9,7 @@ app.use(express.static(path.join(__dirname, '..', 'frontend')));
 
 app.get('/api/oglasi', async (req, res) => {
     try {
-        const { marka, model, cijena_do, godina_od, gorivo } = req.query;
+        const { marka, model, cijena_do, godina, godina_od, godina_do, gorivo } = req.query;
         const uvjeti = [];
         const vrijednosti = [];
 
@@ -25,9 +25,17 @@ app.get('/api/oglasi', async (req, res) => {
             vrijednosti.push(cijena_do);
             uvjeti.push(`cijena <= $${vrijednosti.length}`);
         }
+        if (godina) {
+            vrijednosti.push(godina);
+            uvjeti.push(`godina = $${vrijednosti.length}`);
+        }
         if (godina_od) {
             vrijednosti.push(godina_od);
             uvjeti.push(`godina >= $${vrijednosti.length}`);
+        }
+        if (godina_do) {
+            vrijednosti.push(godina_do);
+            uvjeti.push(`godina <= $${vrijednosti.length}`);
         }
         if (gorivo) {
             vrijednosti.push(gorivo);

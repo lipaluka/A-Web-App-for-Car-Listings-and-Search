@@ -41,3 +41,145 @@ h1{
     border-top: 3.5px solid gray;
 }
 
+/* Raspored stranice pretrage */
+.pretraga {
+    display: flex;
+    gap: 24px;
+    padding: 20px;
+    align-items: flex-start;
+}
+
+/* Filteri */
+.filteri {
+    flex: 0 0 260px;
+    padding: 16px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+.filteri h2 {
+    margin-top: 0;
+}
+
+.filteri label {
+    display: block;
+    margin-top: 12px;
+    font-weight: bold;
+}
+
+.filteri input,
+.filteri select {
+    width: 100%;
+    padding: 6px;
+    margin-top: 4px;
+    box-sizing: border-box;
+}
+
+.filteri button {
+    width: 100%;
+    margin-top: 16px;
+    padding: 10px;
+    border: none;
+    border-radius: 6px;
+    background: darkblue;
+    color: #fff;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.filteri button:hover {
+    background: #086a32;
+}
+
+/* Rezultati: mreža kartica */
+.rezultati {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 20px;
+}
+
+/* Kartica automobila */
+.kartica {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    background: #fff;
+}
+
+.kartica img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    display: block;
+    background: #eee;
+}
+
+.kartica-info {
+    padding: 12px;
+}
+
+.kartica-info h3 {
+    margin: 0 0 8px;
+}
+
+.cijena {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin: 0 0 8px;
+}
+
+.kartica-info a.gumb {
+    display: inline-block;
+    margin-top: 8px;
+    padding: 8px 14px;
+    border-radius: 6px;
+    background: darkblue;
+    color: #fff;
+    text-decoration: none;
+}
+
+/* Na uskim ekranima filteri idu iznad rezultata */
+@media (max-width: 800px) {
+    .pretraga {
+        flex-direction: column;
+    }
+
+    .filteri {
+        flex: none;
+        width: 100%;
+        box-sizing: border-box;
+    }
+}
+
+.filteri .godiste {
+    border: none;
+    padding: 0;
+    margin: 12px 0 0;
+}
+
+.filteri .godiste legend {
+    padding: 0;
+    font-weight: bold;
+}
+
+.filteri .radio {
+    display: inline-block;
+    margin: 4px 12px 0 0;
+    font-weight: normal;
+}
+
+.filteri .radio input {
+    width: auto;
+    margin: 0 4px 0 0;
+}
+
+.godiste [hidden] {
+    display: none;
+}
+
+#godiste-raspon {
+    display: flex;
+    gap: 8px;
+}
+
