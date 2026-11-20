@@ -20,33 +20,45 @@
     <main class="pretraga">
         <aside class="filteri">
             <h2>Filteri</h2>
-            <form id="forma-filteri">
-                <label for="marka">Marka</label>
+        <form id="forma-filteri">
+            <label for="marka">Marka</label>
+            <div class="polje">
                 <input type="text" id="marka" name="marka">
+                <button type="button" class="reset-polje" data-polja="marka" aria-label="Očisti marku">✕</button>
+            </div>
 
-                <label for="model">Model</label>
+            <label for="model">Model</label>
+            <div class="polje">
                 <input type="text" id="model" name="model">
+                <button type="button" class="reset-polje" data-polja="model" aria-label="Očisti model">✕</button>
+            </div>
 
-                <label for="cijena_do">Cijena do (€)</label>
+            <label for="cijena_do">Cijena do (€)</label>
+            <div class="polje">
                 <input type="number" id="cijena_do" name="cijena_do">
+                <button type="button" class="reset-polje" data-polja="cijena_do" aria-label="Očisti cijenu">✕</button>
+            </div>
 
-                <fieldset class="godiste">
-                    <legend>Godište</legend>
+            <fieldset class="godiste">
+                <legend>Godište</legend>
 
-                    <label class="radio"><input type="radio" name="godiste_tip" value="tocno" checked> Točno</label>
-                    <label class="radio"><input type="radio" name="godiste_tip" value="raspon"> Od – do</label>
+                <label class="radio"><input type="radio" name="godiste_tip" value="tocno" checked> Točno</label>
+                <label class="radio"><input type="radio" name="godiste_tip" value="raspon"> Od – do</label>
 
-                    <div id="godiste-tocno">
-                        <input type="number" id="godina" name="godina" placeholder="npr. 2018" min="1950" max="2100">
-                    </div>
+                <div id="godiste-tocno">
+                    <input type="number" id="godina" name="godina" placeholder="npr. 2018" min="1950" max="2100">
+                </div>
 
-                    <div id="godiste-raspon" hidden>
-                        <input type="number" id="godina_od" name="godina_od" placeholder="Od" min="1950" max="2100" disabled>
-                        <input type="number" id="godina_do" name="godina_do" placeholder="Do" min="1950" max="2100" disabled>
-                    </div>
-                </fieldset>
+                <div id="godiste-raspon" hidden>
+                    <input type="number" id="godina_od" name="godina_od" placeholder="Od" min="1950" max="2100" disabled>
+                    <input type="number" id="godina_do" name="godina_do" placeholder="Do" min="1950" max="2100" disabled>
+                </div>
 
-                <label for="gorivo">Gorivo</label>
+                <button type="button" class="reset-polje" data-polja="godina,godina_od,godina_do" aria-label="Očisti godište">✕ Očisti godište</button>
+            </fieldset>
+
+            <label for="gorivo">Gorivo</label>
+            <div class="polje">
                 <select id="gorivo" name="gorivo">
                     <option value="">Sva</option>
                     <option value="Benzin">Benzin</option>
@@ -54,9 +66,12 @@
                     <option value="Hibrid">Hibrid</option>
                     <option value="Električni">Električni</option>
                 </select>
+                <button type="button" class="reset-polje" data-polja="gorivo" aria-label="Očisti gorivo">✕</button>
+            </div>
 
-                <button type="submit">Traži</button>
-            </form>
+            <button type="submit">Traži</button>
+            <button type="reset" id="reset-sve">Resetiraj sve</button>
+        </form>
         </aside>
 
         <section class="rezultati" id="rezultati"></section>

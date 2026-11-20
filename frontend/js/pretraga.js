@@ -88,4 +88,21 @@ forma.addEventListener('submit', event => {
     ucitajOglase(upit ? '?' + upit : '');
 });
 
+document.querySelectorAll('.reset-polje').forEach(gumb => {
+    gumb.addEventListener('click', () => {
+        gumb.dataset.polja.split(',').forEach(ime => {
+            forma.elements[ime].value = '';
+        });
+        forma.requestSubmit(); 
+    });
+});
+
+
+forma.addEventListener('reset', () => {
+    setTimeout(() => {
+        promijeniTipGodista(); 
+        ucitajOglase();       
+    }, 0);
+});
+
 ucitajOglase();
