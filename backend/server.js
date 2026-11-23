@@ -9,38 +9,43 @@ app.use(express.static(path.join(__dirname, '..', 'frontend')));
 
 app.get('/api/oglasi', async (req, res) => {
     try {
-        const { marka, model, cijena_do, godina, godina_od, godina_do, gorivo } = req.query;
         const uvjeti = [];
         const vrijednosti = [];
 
-        if (marka) {
-            vrijednosti.push(`%${marka}%`);
-            uvjeti.push(`marka ILIKE $${vrijednosti.length}`);
+        const dodaj = (uvjet, vrijednost) => {
+            vrijednosti.push(vrijednost);
+            uvjeti.push(uvjet.replace('?', '$' + vrijednosti.length));
+        };
+
+        const broj = v => {
+            if (v === undefined || v === '') return null;
+            const n = Number(v);
+            return Number.isFinite(n) ? n : null;
+        };
+
+        const q = req.query;
+
+        if (q.marka) dodaj('marka ILIKE ?', `%${q.marka}%`);
+        if (q.model) dodaj('model ILIKE ?', `%${q.model}%`);
+        if (q.gorivo)  dodaj('gorivo = ?',  q.gorivo);
+        if (q.mjenjac) dodaj('mjenjac = ?', q.mjenjac);
+        if (q.pogon)   dodaj('pogon = ?',   q.pogon);
+
+        const rasponi = [
+            ['cijena',      'cijena_od',  'cijena_do'],
+            ['godina',      'godina_od',  'godina_do'],
+            ['kilometraza', 'km_od',      'km_do'],
+            ['snaga_kw',    'snaga_od',   'snaga_do'],
+        ];
+        for (const [stupac, odParam, doParam] of rasponi) {
+            const od = broj(q[odParam]);
+            const do_ = broj(q[doParam]);
+            if (od !== null)  dodaj(`${stupac} >= ?`, od);
+            if (do_ !== null) dodaj(`${stupac} <= ?`, do_);
         }
-        if (model) {
-            vrijednosti.push(`%${model}%`);
-            uvjeti.push(`model ILIKE $${vrijednosti.length}`);
-        }
-        if (cijena_do) {
-            vrijednosti.push(cijena_do);
-            uvjeti.push(`cijena <= $${vrijednosti.length}`);
-        }
-        if (godina) {
-            vrijednosti.push(godina);
-            uvjeti.push(`godina = $${vrijednosti.length}`);
-        }
-        if (godina_od) {
-            vrijednosti.push(godina_od);
-            uvjeti.push(`godina >= $${vrijednosti.length}`);
-        }
-        if (godina_do) {
-            vrijednosti.push(godina_do);
-            uvjeti.push(`godina <= $${vrijednosti.length}`);
-        }
-        if (gorivo) {
-            vrijednosti.push(gorivo);
-            uvjeti.push(`gorivo = $${vrijednosti.length}`);
-        }
+
+        const godina = broj(q.godina);
+        if (godina !== null) dodaj('godina = ?', godina);
 
         const where = uvjeti.length ? 'WHERE ' + uvjeti.join(' AND ') : '';
         const rezultat = await pool.query(
