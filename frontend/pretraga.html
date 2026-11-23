@@ -11,7 +11,7 @@
         <ul class="izbornik">
             <li><a href="index.html">Početna</a></li>
             <li><a href="pretraga.html">Pretraga automobila</a></li>
-            <li><a href="">Korisnički izbornik</a></li>
+            <li id="korisnicki-izbornik"><a href="prijava.html">Prijava / Registracija</a></li>
             <li><a href="info.html">Info</a></li>
             <li><a href="">Spremljeni oglasi</a></li>
         </ul>
@@ -33,10 +33,11 @@
                 <button type="button" class="reset-polje" data-polja="model" aria-label="Očisti model">✕</button>
             </div>
 
-            <label for="cijena_do">Cijena do (€)</label>
+            <label>Cijena (€)</label>
             <div class="polje">
-                <input type="number" id="cijena_do" name="cijena_do">
-                <button type="button" class="reset-polje" data-polja="cijena_do" aria-label="Očisti cijenu">✕</button>
+                <input type="number" name="cijena_od" placeholder="Od" min="0">
+                <input type="number" name="cijena_do" placeholder="Do" min="0">
+                <button type="button" class="reset-polje" data-polja="cijena_od,cijena_do" aria-label="Očisti cijenu">✕</button>
             </div>
 
             <fieldset class="godiste">
@@ -57,6 +58,20 @@
                 <button type="button" class="reset-polje" data-polja="godina,godina_od,godina_do" aria-label="Očisti godište">✕ Očisti godište</button>
             </fieldset>
 
+            <label>Kilometraža (km)</label>
+            <div class="polje">
+                <input type="number" name="km_od" placeholder="Od" min="0">
+                <input type="number" name="km_do" placeholder="Do" min="0">
+                <button type="button" class="reset-polje" data-polja="km_od,km_do" aria-label="Očisti kilometražu">✕</button>
+            </div>
+
+            <label>Snaga (kW)</label>
+            <div class="polje">
+                <input type="number" name="snaga_od" placeholder="Od" min="0">
+                <input type="number" name="snaga_do" placeholder="Do" min="0">
+                <button type="button" class="reset-polje" data-polja="snaga_od,snaga_do" aria-label="Očisti snagu">✕</button>
+            </div>
+
             <label for="gorivo">Gorivo</label>
             <div class="polje">
                 <select id="gorivo" name="gorivo">
@@ -65,8 +80,30 @@
                     <option value="Dizel">Dizel</option>
                     <option value="Hibrid">Hibrid</option>
                     <option value="Električni">Električni</option>
+                    <option value="Plin">Plin</option>
                 </select>
                 <button type="button" class="reset-polje" data-polja="gorivo" aria-label="Očisti gorivo">✕</button>
+            </div>
+
+            <label for="mjenjac">Mjenjač</label>
+            <div class="polje">
+                <select id="mjenjac" name="mjenjac">
+                    <option value="">Svi</option>
+                    <option value="Ručni">Ručni</option>
+                    <option value="Automatski">Automatski</option>
+                </select>
+                <button type="button" class="reset-polje" data-polja="mjenjac" aria-label="Očisti mjenjač">✕</button>
+            </div>
+
+            <label for="pogon">Pogon</label>
+            <div class="polje">
+                <select id="pogon" name="pogon">
+                    <option value="">Svi</option>
+                    <option value="Prednji">Prednji</option>
+                    <option value="Stražnji">Stražnji</option>
+                    <option value="4x4">4x4</option>
+                </select>
+                <button type="button" class="reset-polje" data-polja="pogon" aria-label="Očisti pogon">✕</button>
             </div>
 
             <button type="submit">Traži</button>
@@ -82,7 +119,8 @@
         <p>Kontakt: luka.lipovac.sb@gmail.com</p>
         <p>Tel: 099/765/7544</p>
     </footer>
-
+    <script src="js/kartice.js"></script>
     <script src="js/pretraga.js"></script>
+    <script src="js/auth.js"></script>
 </body>
 </html>

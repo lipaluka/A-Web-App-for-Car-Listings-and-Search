@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prijava</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+        <ul class="izbornik">
+            <li><a href="index.html">Početna</a></li>
+            <li><a href="pretraga.html">Pretraga automobila</a></li>
+            <li id="korisnicki-izbornik"><a href="prijava.html">Prijava / Registracija</a></li>
+            <li><a href="info.html">Info</a></li>
+            <li><a href="">Spremljeni oglasi</a></li>
+        </ul>
+    </nav>
+
+    <main class="prijava">
+        <section class="obrazac">
+            <h2>Prijava</h2>
+            <form id="forma-prijava">
+                <label for="p-email">Email</label>
+                <input type="email" id="p-email" name="email" required>
+
+                <label for="p-lozinka">Lozinka</label>
+                <input type="password" id="p-lozinka" name="lozinka" required>
+
+                <button type="submit">Prijavi se</button>
+                <p class="poruka" id="poruka-prijava"></p>
+            </form>
+        </section>
+
+        <section class="obrazac">
+            <h2>Novi račun</h2>
+            <form id="forma-registracija">
+                <label for="r-ime">Ime</label>
+                <input type="text" id="r-ime" name="ime" maxlength="50" required>
+
+                <label for="r-prezime">Prezime</label>
+                <input type="text" id="r-prezime" name="prezime" maxlength="50" required>
+
+                <label for="r-email">Email</label>
+                <input type="email" id="r-email" name="email" maxlength="100" required>
+
+                <label for="r-telefon">Telefon (nije obavezno)</label>
+                <input type="tel" id="r-telefon" name="telefon" maxlength="20">
+
+                <label for="r-lozinka">Lozinka (min. 8 znakova)</label>
+                <input type="password" id="r-lozinka" name="lozinka" minlength="8" required>
+
+                <button type="submit">Registriraj se</button>
+                <p class="poruka" id="poruka-registracija"></p>
+            </form>
+        </section>
+    </main>
+
+    <footer class="kontakt_info">
+        <p>&copy; 2026 Web App for Car Listings. All rights reserved.</p>
+        <p>Kontakt: luka.lipovac.sb@gmail.com</p>
+        <p>Tel: 099/765/7544</p>
+    </footer>
+
+    <script src="js/auth.js"></script>
+    <script src="js/prijava.js"></script>
+</body>
+</html>

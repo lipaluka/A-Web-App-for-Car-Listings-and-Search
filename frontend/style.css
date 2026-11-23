@@ -41,7 +41,6 @@ h1{
     border-top: 3.5px solid gray;
 }
 
-/* Raspored stranice pretrage */
 .pretraga {
     display: flex;
     gap: 24px;
@@ -88,10 +87,10 @@ h1{
 }
 
 .filteri button:hover {
-    background: #086a32;
+    background: blue;
 }
 
-/* Rezultati: mreža kartica */
+
 .rezultati {
     flex: 1;
     display: grid;
@@ -99,7 +98,6 @@ h1{
     gap: 20px;
 }
 
-/* Kartica automobila */
 .kartica {
     border: 1px solid #ddd;
     border-radius: 8px;
@@ -139,7 +137,6 @@ h1{
     text-decoration: none;
 }
 
-/* Na uskim ekranima filteri idu iznad rezultata */
 @media (max-width: 800px) {
     .pretraga {
         flex-direction: column;
@@ -195,7 +192,6 @@ h1{
     min-width: 0;
 }
 
-/* Mali ✕ uz svako polje */
 .filteri .reset-polje {
     width: auto;
     margin: 4px 0 0;
@@ -211,7 +207,6 @@ h1{
     color: #c00;
 }
 
-/* "✕ Očisti godište" kao diskretan tekst-link */
 .filteri .godiste .reset-polje {
     margin-top: 8px;
     padding: 0;
@@ -219,7 +214,6 @@ h1{
     text-decoration: underline;
 }
 
-/* "Resetiraj sve" kao sekundarni gumb */
 .filteri #reset-sve {
     background: none;
     color: #444;
@@ -231,3 +225,115 @@ h1{
     background: #eee;
 }
 
+.pocetna {
+    padding: 20px;
+}
+
+.pocetna h2 {
+    margin: 24px 0 12px;
+}
+
+.svi-oglasi {
+    text-align: center;
+    margin-top: 24px;
+}
+
+.svi-oglasi a.gumb {
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 6px;
+    background: darkblue;
+    color: #fff;
+    text-decoration: none;
+}
+
+.svi-oglasi a.gumb:hover {
+    background:blue;
+}
+
+.izbornik li {
+    position: relative;
+}
+
+.izbornik .padajuci {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    background: #fff;
+    border: 1px solid gray;
+}
+
+.izbornik li:hover > .padajuci,
+.izbornik li:focus-within > .padajuci {
+    display: block;
+}
+
+.izbornik .padajuci a {
+    font-size: 18px;
+    padding: 12px 0;
+    color: #333;
+}
+
+.izbornik .padajuci a:hover {
+    transform: none;
+    color: white;
+}
+
+.prijava {
+    display: flex;
+    gap: 24px;
+    padding: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.obrazac {
+    flex: 0 1 340px;
+    padding: 16px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+.obrazac h2 {
+    margin-top: 0;
+}
+
+.obrazac label {
+    display: block;
+    margin-top: 12px;
+    font-weight: bold;
+}
+
+.obrazac input {
+    width: 100%;
+    padding: 6px;
+    margin-top: 4px;
+    box-sizing: border-box;
+}
+
+.obrazac button {
+    width: 100%;
+    margin-top: 16px;
+    padding: 10px;
+    border: none;
+    border-radius: 6px;
+    background: darkblue;
+    color: #fff;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.obrazac button:hover {
+    background: blue;
+}
+
+.poruka {
+    color: #c00;
+    min-height: 1.2em;
+}
