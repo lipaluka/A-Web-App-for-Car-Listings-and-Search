@@ -1,4 +1,4 @@
-function prikaziOglase(oglasi, kontejner) {
+function prikaziOglase(oglasi, kontejner, akcije) {
     if (oglasi.length === 0) {
         kontejner.textContent = 'Nema oglasa koji odgovaraju pretrazi.';
         return;
@@ -33,6 +33,7 @@ function prikaziOglase(oglasi, kontejner) {
         poveznica.textContent = 'Detalji';
 
         info.append(naslov, cijena, detalji, poveznica);
+        if (akcije) info.append(akcije(oglas));
         kartica.append(slika, info);
         kontejner.append(kartica);
     });

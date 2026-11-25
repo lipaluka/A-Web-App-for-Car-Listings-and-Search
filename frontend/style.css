@@ -337,3 +337,33 @@ h1{
     color: #c00;
     min-height: 1.2em;
 }
+
+.obrazac-siroki {
+    flex-basis: 480px;
+}
+
+.obrazac select,
+.obrazac textarea {
+    width: 100%;
+    padding: 6px;
+    margin-top: 4px;
+    box-sizing: border-box;
+    font-family: inherit;
+}
+
+.kartica-info a.gumb + a.gumb {
+    margin-left: 8px;
+}
+
+.gumb-link {
+    display: inline-block;
+    padding: 8px 14px;
+    border-radius: 6px;
+    background: darkblue;
+    color: #fff;
+    text-decoration: none;
+}
+
+.gumb-link:hover {
+    background: blue;
+}

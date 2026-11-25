@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oglas</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+        <ul class="izbornik">
+            <li><a href="index.html">Početna</a></li>
+            <li><a href="pretraga.html">Pretraga automobila</a></li>
+            <li id="korisnicki-izbornik"><a href="prijava.html">Prijava / Registracija</a></li>
+            <li><a href="info.html">Info</a></li>
+            <li><a href="">Spremljeni oglasi</a></li>
+        </ul>
+    </nav>
+
+    <main class="prijava">
+        <section class="obrazac obrazac-siroki">
+            <h2 id="naslov">Dodaj oglas</h2>
+            <form id="forma-oglas">
+                <label for="marka">Marka</label>
+                <input type="text" id="marka" name="marka" maxlength="50" required>
+
+                <label for="model">Model</label>
+                <input type="text" id="model" name="model" maxlength="50" required>
+
+                <label for="godina">Godina proizvodnje</label>
+                <input type="number" id="godina" name="godina" min="1950" required>
+
+                <label for="cijena">Cijena (€)</label>
+                <input type="number" id="cijena" name="cijena" min="0" step="0.01" required>
+
+                <label for="kilometraza">Kilometraža (km)</label>
+                <input type="number" id="kilometraza" name="kilometraza" min="0">
+
+                <label for="snaga_kw">Snaga (kW)</label>
+                <input type="number" id="snaga_kw" name="snaga_kw" min="0">
+
+                <label for="gorivo">Gorivo</label>
+                <select id="gorivo" name="gorivo" required>
+                    <option value="">Odaberi…</option>
+                    <option value="Benzin">Benzin</option>
+                    <option value="Dizel">Dizel</option>
+                    <option value="Hibrid">Hibrid</option>
+                    <option value="Električni">Električni</option>
+                    <option value="Plin">Plin</option>
+                </select>
+
+                <label for="mjenjac">Mjenjač</label>
+                <select id="mjenjac" name="mjenjac" required>
+                    <option value="">Odaberi…</option>
+                    <option value="Ručni">Ručni</option>
+                    <option value="Automatski">Automatski</option>
+                </select>
+
+                <label for="pogon">Pogon</label>
+                <select id="pogon" name="pogon" required>
+                    <option value="">Odaberi…</option>
+                    <option value="Prednji">Prednji</option>
+                    <option value="Stražnji">Stražnji</option>
+                    <option value="4x4">4x4</option>
+                </select>
+
+                <label for="opis">Opis</label>
+                <textarea id="opis" name="opis" rows="5" maxlength="5000"></textarea>
+
+                <button type="submit" id="gumb-spremi">Objavi oglas</button>
+                <p class="poruka" id="poruka-oglas"></p>
+            </form>
+        </section>
+    </main>
+
+    <footer class="kontakt_info">
+        <p>&copy; 2026 Web App for Car Listings. All rights reserved.</p>
+        <p>Kontakt: luka.lipovac.sb@gmail.com</p>
+        <p>Tel: 099/765/7544</p>
+    </footer>
+
+    <script src="js/auth.js"></script>
+    <script src="js/oglas-forma.js"></script>
+</body>
+</html>
